@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理平台</title>
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-grid.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-reboot.css"/>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <style>
+        .list-group-item.active {
+            z-index: 2;
+            color: #fff;
+            background-color: #000000;
+            border-color: #000000;
+        }
+    </style>
+</head>
+<body style="overflow: hidden;">
+<div>
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h5 class="text-white h4">欢迎您，TADIE</h5>
+                <span class="text-muted">这里可以记录一句你想说的话，或者来自个人资料中的个性签名！</span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">管理平台</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent"
+                    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="nav-item dropdown" style="margin-right: 5%;">
+                <a class="nav-link dropdown-toggle" title="首次加载请双击启用菜单！" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    TADIE
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">修改资料</a>
+                    <a class="dropdown-item" href="#">修改密码</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">退出登录</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div>
+        <div class="float-left w-10 bg-dark h-94" style="position: absolute;overflow:auto;">
+            <div class="list-group"></div>
+        </div>
+        <div class="float-right w-90" style="height: 1015px;">
+            <iframe id="contentPage" class="w-100 h-100" src=""></iframe>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+
+    $(function () {
+        const pAry =[];
+        const es = '<span>';
+        const ee = '</span>';
+        for (let i = 0; i < 5; i++) {
+            let pMenu = '<a href="#" class="list-group-item list-group-item-action active" onclick="fn1(this)">菜单' + i + '</a>';
+            let sAry = [];
+            for (let j = 0; j < 3; j++) {
+                let sMenu = '<a href="#" class="list-group-item list-group-item-action list-group-item-dark" onclick="fn2(this)">子菜单' + j + '</a>';
+                sAry.push(es.concat(sMenu).concat(ee));
+            }
+            pAry.push(pMenu.concat(es).concat(sAry.join("")).concat(ee));
+        }
+        $(".list-group").html(pAry.join(""));
+    })
+
+    function fn1(obj) {
+        $(obj).next().toggle();
+        if($(obj).hasClass("active")){
+            $(obj).removeClass("active");
+        }else{
+            $(obj).addClass("active");
+        }
+    }
+
+    function fn2(obj){
+        $("#contentPage").attr("src","../html/demo.html?".concat($(obj).text()));
+    }
+</script>
+</html>
