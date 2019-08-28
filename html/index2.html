@@ -56,32 +56,26 @@
 <div>
     <div style="height: 164px;">
         <div class="pos-f-t">
-            <div class="collapse" id="navbarToggleExternalContent">
-                <div class="bg-light p-4">
-                    <h5 class="h4">欢迎您，TADIE</h5>
-                    <span class="text-muted">这里可以记录一句你想说的话，或者来自个人资料中的个性签名！</span>
+            <div class="collapse" id="hideContentArea">
+                <div class="bg-light p-4 text-center">
+                    <div class="jumbotron">
+                        <div class="container">
+                           <h1 class="">站内信消息通知或者处理其他消息，无需权限的等等~</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="#"><span class="fa fa-desktop">&nbsp;&nbsp;</span>管理平台</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarToggleExternalContent"
-                        aria-controls="navbarToggleExternalContent" aria-expanded="false"
-                        aria-label="Toggle navigation" onclick="change(this)">
-                    <span class="fa fa-lock"></span>
-                </button>
-                <div class="nav-item dropdown" style="margin-right: 5%;">
-                    <a class="nav-link dropdown-toggle" title="首次加载请双击启用菜单！" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="fa fa-user-o">&nbsp;&nbsp;</span>TADIE
+                <a class="navbar-toggler" data-toggle="collapse" href="#"
+                   data-target="#hideContentArea">
+                    <span class="fa fa-comments"></span>
+                </a>
+                <div class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginOutModal">
+                        <span class="fa fa-user-circle-o">&nbsp;&nbsp;</span>
+                        <span>zEidat&nbsp;&nbsp;</span>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#"><span
-                                class="fa fa-pencil-square-o">&nbsp;&nbsp;</span>修改资料</a>
-                        <a class="dropdown-item" href="#"><span class="fa fa-pencil">&nbsp;&nbsp;</span>修改密码</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><span class="fa fa-reply">&nbsp;&nbsp;</span>退出登录</a>
-                    </div>
                 </div>
             </nav>
         </div>
@@ -101,6 +95,30 @@
             </div>
             <div class="footer">
                 <p><span class="fa fa-copyright">&nbsp;&nbsp;</span>2019 By zEidat All rights reserved</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="loginOutModal" tabindex="-1" role="dialog" aria-labelledby="loginOutModalTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginOutModalTitle"><span
+                        class="fa fa-exclamation-triangle">&nbsp;&nbsp;</span>退出登录</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="fa fa-close">&nbsp;&nbsp;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6 class="text-center">是否要退出当前登录用户：zEidat？</h6>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="fa fa-times-circle">&nbsp;&nbsp;</span>取消
+                </button>
+                <button type="button" class="btn btn-primary"><span class="fa fa-check-circle">&nbsp;&nbsp;</span>确定
+                </button>
             </div>
         </div>
     </div>
@@ -133,16 +151,6 @@
             $(obj).removeAttr("style");
             $(obj).find("i").addClass("on");
             $(obj).addClass("active");
-        }
-    }
-
-    function change(obj) {
-        if ($(obj).find("span").hasClass("fa-lock")) {
-            $(obj).find("span").removeClass("fa-lock");
-            $(obj).find("span").addClass("fa-unlock");
-        } else {
-            $(obj).find("span").addClass("fa-lock");
-            $(obj).find("span").removeClass("fa-unlock");
         }
     }
 </script>
