@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试页面2</title>
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-grid.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-reboot.css"/>
+    <link rel="stylesheet" href="../css/font-awesome.css">
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-router.js"></script>
+    <style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        i {
+            position: absolute;
+            right: 10px;
+            top: 16px;
+            border: 8px solid transparent;
+            border-left-color: #fff; /*triangle*/
+            transform: rotate(0deg);
+            transform-origin: 1px 8px;
+            transition: .5s
+        }
+
+        .on {
+            transform: rotate(90deg);
+        }
+
+        .sidebar {
+            position: relative;
+            float: left;
+            height: 850px;
+            width: 200px;
+            overflow: auto;
+        }
+
+        .main {
+            height: 850px;
+            overflow: auto;
+            border: solid;
+        }
+
+        .footer {
+            height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="hide-scrollbar">
+<div>
+    <div style="height: 164px;">
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-light p-4">
+                    <h5 class="h4">欢迎您，TADIE</h5>
+                    <span class="text-muted">这里可以记录一句你想说的话，或者来自个人资料中的个性签名！</span>
+                </div>
+            </div>
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#"><span class="fa fa-desktop">&nbsp;&nbsp;</span>管理平台</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarToggleExternalContent"
+                        aria-controls="navbarToggleExternalContent" aria-expanded="false"
+                        aria-label="Toggle navigation" onclick="change(this)">
+                    <span class="fa fa-lock"></span>
+                </button>
+                <div class="nav-item dropdown" style="margin-right: 5%;">
+                    <a class="nav-link dropdown-toggle" title="首次加载请双击启用菜单！" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-user-o">&nbsp;&nbsp;</span>TADIE
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#"><span
+                                class="fa fa-pencil-square-o">&nbsp;&nbsp;</span>修改资料</a>
+                        <a class="dropdown-item" href="#"><span class="fa fa-pencil">&nbsp;&nbsp;</span>修改密码</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"><span class="fa fa-reply">&nbsp;&nbsp;</span>退出登录</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div>
+            <div>
+                <div class="sidebar hide-scrollbar">
+                    <div class="list-group">
+                        <a href="#"
+                           class="list-group-item list-group-item-action list-group-item-dark text-center"><span
+                                class="fa fa-bars">&nbsp;&nbsp;</span>模块管理</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </div>
+                <div class="main hide-scrollbar">
+
+                </div>
+            </div>
+            <div class="footer">
+                <p><span class="fa fa-copyright">&nbsp;&nbsp;</span>2019 By zEidat All rights reserved</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        const pAry = [];
+        const es = '<span>';
+        const ee = '</span>';
+        for (let i = 0; i < 5; i++) {
+            let pMenu = '<a href="#" class="list-group-item list-group-item-action active" onclick="fn1(this)"><span class="fa fa-tags">&nbsp;&nbsp;</span>菜单' + i + '<i class="on"></i></a>';
+            let sAry = [];
+            for (let j = 0; j < 3; j++) {
+                let sMenu = '<a href="#" class="list-group-item list-group-item-action text-center" onclick="fn2(this)"><span class="fa fa-tag">&nbsp;&nbsp;</span>子菜单' + j + '</a>';
+                sAry.push(es.concat(sMenu).concat(ee));
+            }
+            pAry.push(pMenu.concat(es).concat(sAry.join("")).concat(ee));
+        }
+        $(".list-group").append(pAry.join(""));
+    })
+
+    function fn1(obj) {
+        $(obj).next().slideToggle("fast");
+        if ($(obj).hasClass("active")) {
+            $(obj).find("i").removeClass("on");
+            $(obj).removeClass("active");
+            $(obj).attr("style", "background-color:#c6c8ca");
+        } else {
+            $(obj).removeAttr("style");
+            $(obj).find("i").addClass("on");
+            $(obj).addClass("active");
+        }
+    }
+
+    function change(obj) {
+        if ($(obj).find("span").hasClass("fa-lock")) {
+            $(obj).find("span").removeClass("fa-lock");
+            $(obj).find("span").addClass("fa-unlock");
+        } else {
+            $(obj).find("span").addClass("fa-lock");
+            $(obj).find("span").removeClass("fa-unlock");
+        }
+    }
+</script>
+</html>

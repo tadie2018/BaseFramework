@@ -9,6 +9,8 @@
     <script src="../js/jquery-3.4.1.js"></script>
     <script src="../js/bootstrap.js"></script>
     <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-router.js"></script>
     <style>
         .list-group-item.active {
             z-index: 2;
@@ -16,9 +18,12 @@
             background-color: #000000;
             border-color: #000000;
         }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
-<body style="overflow: hidden;">
+<body class="hide-scrollbar">
 <div>
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
@@ -49,7 +54,7 @@
         </nav>
     </div>
     <div>
-        <div class="float-left w-10 bg-dark h-94" style="position: absolute;overflow:auto;">
+        <div class="float-left w-10 bg-dark h-94 hide-scrollbar" style="position: absolute;overflow:auto;">
             <div class="list-group"></div>
         </div>
         <div class="float-right w-90" style="height: 1015px;">

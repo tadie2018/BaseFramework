@@ -1,10 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-if="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-router.js"></script>
 </head>
 <body>
-哈哈哈哈哈哈哈哈哈哈哈哈哈
+<div id="app">
+    {{message}}
+</div>
+<div id="app2">
+<!--    v-bind : el Attr-->
+<!--    :运算符后面改变的是DOM原有的属性-->
+    <span v-bind:title="message">
+        鼠标悬停在这里查看信息
+    </span>
+</div>
+<div id="app3">
+<!--    简单判断操作，判断元素显示的时候直接删除元素，包括注释的内容都会删除(不占位)-->
+    <span v-if="seen">
+        可以看到我是吗
+    </span>
+</div>
+<div id="app4">
+<!--    循环操作-->
+    <ol>
+        <li v-for="obj in list">
+            {{obj.text}}
+        </li>
+    </ol>
+</div>
+<div id="app5">
+<!--    事件绑定 类似的v-bind:title 在修改DOM原有的属性或者监听时使用:-->
+<!--    click后面仍然是函数，和onclick的区别就是不需要()了-->
+    {{message}}
+    <button v-on:click="alterText">点击修改内容</button>
+</div>
+<div id="app6">
+<!--    双向数据绑定，处理用户输入-->
+    {{message}}
+    <label>
+        <input v-model="message"/>
+    </label>
+</div>
 </body>
+<script>
+    const app1 = new Vue({
+        el: '#app',
+        data: {
+            message:'测试VUE环境'
+        }
+    })
+   const app2 =  new Vue({
+        el: '#app2',
+        data: {
+            message: '测试鼠标悬停Vue数据绑定' + new Date().toLocaleDateString()
+        }
+    })
+    const app3 = new Vue({
+        el: '#app3',
+        data: {
+            seen: true
+        }
+    })
+    const app4 = new Vue({
+        el: '#app4',
+        data: {
+            list: [
+                {id:1,text:'测试1'},
+                {id:2,text:'测试2'},
+                {id:3,text:'测试3'}
+            ]
+        }
+    })
+    const app5 = new Vue({
+        //所有需要渲染的内容都需要声明
+        el: '#app5',
+        data:{
+            message:'消息'
+        },
+        methods: {
+            alterText: function () {
+                this.message = this.message + ': 已修改';
+            }
+        }
+    })
+    const app6 = new Vue({
+        el: '#app6',
+        data: {
+            message: '嘿嘿嘿'
+        }
+    })
+</script>
 </html>

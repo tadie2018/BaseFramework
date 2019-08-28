@@ -21,13 +21,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/css" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideaProjects\BaseFramework\css" />
+      <recent name="D:\ideaProjects\BaseFramework\fonts" />
       <recent name="D:\ideaProjects\BaseFramework\js" />
     </key>
   </component>
@@ -55,6 +58,9 @@
       <updated>1566710226793</updated>
       <workItem from="1566710234590" duration="524000" />
       <workItem from="1566788914950" duration="21283000" />
+      <workItem from="1566883702542" duration="1958000" />
+      <workItem from="1566890041201" duration="754000" />
+      <workItem from="1566956919448" duration="9376000" />
     </task>
     <servers />
   </component>
